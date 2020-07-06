@@ -39,13 +39,13 @@ since we will likely have periods where the array and PSF is very non-symmetric"
 - this we can support with the PSFMap by adding a rad-y axis. This comes at the cost of a heavy load on RAM. 
 Typically one such matrix will be ~1Gb. This means that we will really need multiresolution map.
 
-5. *Including event types*
+5. **Including event types**
 - Each event will problably have its own `event_type` tag (eg: depending on the psf)
 - Does this imply each event has a different IRF?
 - Is the time handling affected in this case?
 - Should different event types be stacked together?
 
-6. Including uncertainties on the IRFs
+6. **Including uncertainties on the IRFs**
 - Including uncertainties on the IRFs should be the job of science tools.
 - Possibly need to distinguish between systematic and statistical uncertainties.
 - Doing it a part of every analysis is probably too heavy. 
