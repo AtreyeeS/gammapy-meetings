@@ -9,9 +9,11 @@ https://forge.in2p3.fr/projects/instrument-response-functions/wiki/Current_IRF_f
 
 ## Implications on gammapy:
 
-1. **Point-like IRFs**
--  If required, CTA may supply *point-like IRFs* (TBD). These will be defined at the nodes, not centers.
-The data format and science tools must support both and adapt accordingly - `node` centering in IRF builing. 
+1. **Node centering**
+-  Support IRFs produced at bin centers independent of the bin edges
+
+**Point Like IRFs**
+- Might be supplied by CTA (TBD)
 - Who decides which IRF to choose? Can the science tools do it automatically? - Adaptations in `DataStore`?
 
 2. **GTI**
@@ -44,6 +46,10 @@ Typically one such matrix will be ~1Gb. This means that we will really need mult
 - Does this imply each event has a different IRF?
 - Is the time handling affected in this case?
 - Should different event types be stacked together?
+
+-- We don’t know whether IRF will be described as FoVX FoVY, or OFFSET, PHI. 
+Ideally an IRF class should be able to treat either of them in a consistent way.
+Can we transform IRFs into Maps with an arbitrary frame?
 
 6. **Including uncertainties on the IRFs**
 - Including uncertainties on the IRFs should be the job of science tools.
